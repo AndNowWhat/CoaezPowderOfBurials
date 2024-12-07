@@ -1,2 +1,2 @@
-rootProject.name = "CoaezPowderOfBurials"
+rootProject.name = "CoaezPitchCanFM"
 

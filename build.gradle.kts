@@ -4,13 +4,13 @@ plugins {
 }
 
 group = "net.botwithus.debug"
-version = "1.1-SNAPSHOT"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        setUrl("https://nexus.botwithus.net/repository/maven-snapshots/")
+        setUrl("https://nexus.botwithus.net/repository/maven-releases/")
     }
 }
 
@@ -35,9 +35,9 @@ tasks.withType<JavaExec> {
 }
 
 dependencies {
-    implementation("net.botwithus.rs3:botwithus-api:1.0.0-SNAPSHOT")
-    implementation("net.botwithus.xapi.public:api:1.0.0-SNAPSHOT")
-    "includeInJar"("net.botwithus.xapi.public:api:1.0.0-SNAPSHOT")
+    implementation("net.botwithus.rs3:botwithus-api:1.+")
+    implementation("net.botwithus.xapi.public:api:1.+")
+    "includeInJar"("net.botwithus.xapi.public:api:1.+")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
     implementation("com.google.code.gson:gson:2.10.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
@@ -50,7 +50,7 @@ val copyJar by tasks.register<Copy>("copyJar") {
 }
 
 tasks.named<Jar>("jar") {
-    archiveBaseName.set("CoaezPoB")
+    archiveBaseName.set("CoaezPitchCanFM")
     from({
         configurations["includeInJar"].map { zipTree(it) }
     })
